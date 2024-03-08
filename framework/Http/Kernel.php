@@ -3,33 +3,34 @@
 namespace Ibrohim\Framework\Http;
 
 use FastRoute\RouteCollector;
+use Ibrohim\Framework\Http\Exceptions\HttpException;
+use Ibrohim\Framework\Http\Exceptions\MethodNotAllowedException;
+use Ibrohim\Framework\Http\Exceptions\RouteNotFoundException;
+use Ibrohim\Framework\Routing\RouterInterface;
 use function FastRoute\simpleDispatcher;
 
 class Kernel
 {
+    public function __construct(
+        private RouterInterface $router
+    )
+    {
+    }
+
     public function handle(Request $request): Response
     {
-        $dispatcher = simpleDispatcher(function (RouteCollector $collector){
-            $collector->get( '/', function (){
-                $content = '<h1>Hello</h1>';
+        try {
+            [$routeHandler, $vars] = $this->router->dispatch($request);
 
-                return new Response($content);
-            });
+            $response = call_user_func_array($routeHandler, $vars);
+        } catch (HttpException $e) {
+            $response = new Response($e->getMessage(), $e->getStatusCode());
+        } catch (\Throwable $e) {
+            $response = new Response($e->getMessage(), 500);
+        }
 
-            $collector->get('/posts/{id}', function (array $vars){
-                $content = "<h1>Hello - {$vars['id']} </h1>";
-                return new Response($content);
-            });
-        });
+        return $response;
 
-        $routeInfo = $dispatcher->dispatch(
-            $request->getMethod(),
-            $request->getPath(),
-        );
-
-        [$status, $handler, $vars] = $routeInfo;
-
-        return $handler($vars);
     }
 
 }
