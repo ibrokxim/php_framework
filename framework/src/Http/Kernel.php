@@ -2,12 +2,9 @@
 
 namespace Ibrohim\Framework\Http;
 
-use FastRoute\RouteCollector;
 use Ibrohim\Framework\Http\Exceptions\HttpException;
-use Ibrohim\Framework\Http\Exceptions\MethodNotAllowedException;
-use Ibrohim\Framework\Http\Exceptions\RouteNotFoundException;
 use Ibrohim\Framework\Routing\RouterInterface;
-use function FastRoute\simpleDispatcher;
+
 
 class Kernel
 {

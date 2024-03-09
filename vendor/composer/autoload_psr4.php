@@ -8,7 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\VarDumper\\' => array($vendorDir . '/symfony/var-dumper'),
-    'Ibrohim\\Framework\\' => array($baseDir . '/framework'),
+    'Ibrohim\\Framework\\' => array($vendorDir . '/ibrohim/php-framework/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Database\\Seeders\\' => array($vendorDir . '/laravel/pint/database/seeders'),
     'Database\\Factories\\' => array($vendorDir . '/laravel/pint/database/factories'),

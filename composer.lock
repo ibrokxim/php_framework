@@ -4,8 +4,38 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2528c8a937f15b27550eb5ebc5207356",
+    "content-hash": "60d788590b11c2644e2f22fded1e431c",
     "packages": [
+        {
+            "name": "ibrohim/php-framework",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "framework",
+                "reference": "defc12b4309a15f81cc1738f6fe10bd7bf24aab9"
+            },
+            "require": {
+                "nikic/fast-route": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ibrohim\\Framework\\": "src"
+                }
+            },
+            "license": [
+                "MadisonGroup"
+            ],
+            "authors": [
+                {
+                    "name": "Ibrohim Nabijonov",
+                    "email": "nibrohim04@gmail.com"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
         {
             "name": "nikic/fast-route",
             "version": "v1.3.0",
@@ -359,7 +389,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ibrohim/php-framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

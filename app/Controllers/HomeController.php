@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Ibrohim\Framework\Http\Response;
+use Ibrohim\Framework\src\Http\Response;
 
 class HomeController
 {
