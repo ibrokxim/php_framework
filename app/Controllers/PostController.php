@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Ibrohim\Framework\src\Http\Response;
+use Ibrohim\Framework\Http\Response;
 
 class PostController
 {
