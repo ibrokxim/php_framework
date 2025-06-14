@@ -1,0 +1,22 @@
+{
+    "name": "ibrohim/php-framework",
+    "authors": [
+        {
+            "name": "ibrokxim",
+            "email": "nibrohim04@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Ibrohim\\Framework\\": "framework"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^7.3",
+        "laravel/pint": "^1.22"
+    },
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
+}
